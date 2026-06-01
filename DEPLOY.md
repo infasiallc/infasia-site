@@ -32,7 +32,7 @@ You only need to (1) put these files on GitHub and turn on Pages, and
 5. Go to the repo's **Settings → Pages**.
    - Under "Build and deployment", Source = **Deploy from a branch**.
    - Branch = **main**, folder = **/ (root)**. Click **Save**.
-6. Wait ~1 minute. Your site is live at `https://<your-username>.github.io/infasia-site/`.
+6. Wait ~1 minute. Your site is live at `https://infasiallc.github.io/infasia-site/`.
    (The custom domain in Part 2 replaces this URL.)
 
 ### Option B — With git (if you prefer the terminal)
@@ -41,7 +41,7 @@ A repo is already initialized in this folder. After creating the empty GitHub re
 ```bash
 cd "/Users/salman.mik.us/Desktop/AI Services Business/Website"
 git branch -M main
-git remote add origin https://github.com/<your-username>/infasia-site.git
+git remote add origin https://github.com/infasiallc/infasia-site.git
 git push -u origin main
 ```
 Then do step 5 above to enable Pages.
@@ -68,19 +68,55 @@ infasia.net domain and just aim it at GitHub.
    **One CNAME record** (for `www.infasia.net`):
    | Type  | Host | Value                       |
    |-------|------|-----------------------------|
-   | CNAME | www  | `<your-username>.github.io.` |
+   | CNAME | www  | `infasiallc.github.io.` |
 
-   Replace `<your-username>` with your actual GitHub username (keep the trailing dot if Northwest requires it).
+   (`infasiallc` is your GitHub username. Keep the trailing dot if the panel requires it.)
 
 3. Save. DNS changes take a few minutes to a few hours to take effect.
 4. Back in GitHub → **Settings → Pages → Custom domain**, it should already show
    `infasia.net` (from the `CNAME` file). If not, type `infasia.net` and Save.
 5. Once the green check appears, tick **Enforce HTTPS**. Done — https://infasia.net is live.
 
-If Northwest's panel only lets you set **nameservers** (not individual records),
-the simplest alternative is to move DNS to **Cloudflare** (free): add the domain in
-Cloudflare, copy the two nameservers it gives you into Northwest, then add the same
-A + CNAME records in Cloudflare. Hosting still stays free on GitHub Pages.
+---
+
+## Part 2 (RECOMMENDED) — Use Cloudflare for DNS + free, reliable email
+
+Northwest's built-in email forwarding has been unreliable (late / missed). Moving
+DNS to **Cloudflare** (free) fixes that AND hosts all the website records in one
+place. Northwest stays the registrar — only the nameservers change.
+
+GitHub username: **infasiallc**  •  Forward email to: **infasia26@gmail.com**
+
+1. Create a free account at https://dash.cloudflare.com → **Add a site** → enter
+   `infasia.net` → choose the **Free** plan. (Do NOT buy anything or transfer the domain.)
+2. Cloudflare scans your current records and shows **2 nameservers** (e.g.
+   `xxx.ns.cloudflare.com`). Copy them.
+3. In **Northwest** → domain `infasia.net` → **Nameservers** → replace Northwest's
+   nameservers with the 2 Cloudflare ones → Save. (This switches DNS control to
+   Cloudflare; Northwest's old forwarding stops — Cloudflare replaces it in step 5.)
+4. In **Cloudflare → DNS → Records**, make sure these website records exist
+   (delete any leftover "parking" A record first):
+
+   | Type  | Name | Value                | Proxy status |
+   |-------|------|----------------------|--------------|
+   | A     | @    | 185.199.108.153      | DNS only (grey cloud) |
+   | A     | @    | 185.199.109.153      | DNS only (grey cloud) |
+   | A     | @    | 185.199.110.153      | DNS only (grey cloud) |
+   | A     | @    | 185.199.111.153      | DNS only (grey cloud) |
+   | CNAME | www  | infasiallc.github.io | DNS only (grey cloud) |
+
+   > Set these to **DNS only** (grey cloud, not orange) so GitHub Pages can issue HTTPS.
+5. In **Cloudflare → Email → Email Routing** → **Enable**. Cloudflare auto-adds the
+   needed MX/TXT records. Add a route: `info@infasia.net` → `infasia26@gmail.com`,
+   then click the verification link Cloudflare emails to that Gmail. Done — email now
+   forwards reliably through Cloudflare.
+6. Finish GitHub Pages: **Settings → Pages → Custom domain** shows `infasia.net`
+   (from the `CNAME` file). Once the check is green, tick **Enforce HTTPS**.
+
+### If you'd rather skip Cloudflare
+You can instead add the four A records + the `www` CNAME directly in Northwest's DNS
+panel (the table in the section above) and keep Northwest's email forwarding. The
+website still works on free GitHub Pages — you just don't get the email reliability fix.
 
 ---
 
