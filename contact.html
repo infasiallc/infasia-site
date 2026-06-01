@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Infasia</title>
+<meta name="description" content="Book a discovery call with Infasia. Tell us the workflow you would hand off first, and we will show you how an agent could take it on, safely and on your terms." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml" />
+<link rel="icon" type="image/png" href="assets/logo-mark.png" />
+<link rel="apple-touch-icon" href="assets/logo-mark.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-size: .85rem; font-weight: 600; color: var(--ink-700); }
+  .field input, .field select, .field textarea {
+    font-family: var(--sans); font-size: 1rem; color: var(--ink);
+    background: var(--ivory-card); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: 12px 14px; width: 100%;
+  }
+  .field textarea { min-height: 130px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--gold-soft); border-color: var(--gold); }
+  .form-note { font-size: .85rem; color: var(--slate); margin-top: 14px; }
+  @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Infasia home">
+      <img class="mark" src="assets/logo-mark.svg" alt="Infasia logo" width="36" height="36" />
+      <span class="name">Infasia</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="services.html">AI Services</a></li>
+      <li><a href="consultancy.html">Consultancy</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-cta"><a class="btn btn-gold" href="contact.html">Book a discovery call</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1>Book a discovery call.</h1>
+    <p class="lede">Tell us the work you would hand off first. Bring one painful, repetitive workflow, and we will show you how an agent could take it on, safely and on your terms.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="split" style="align-items:start;">
+      <div>
+        <div class="card">
+          <h3>Send us a note</h3>
+          <p class="muted" style="margin-bottom:18px;">We will reply to arrange a short call.</p>
+          <form onsubmit="return false;">
+            <div class="form-grid">
+              <div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="Your name" /></div>
+              <div class="field"><label for="company">Company</label><input id="company" type="text" placeholder="Your organization" /></div>
+              <div class="field"><label for="email">Work email</label><input id="email" type="email" placeholder="you@company.com" /></div>
+              <div class="field"><label for="interest">I am interested in</label>
+                <select id="interest">
+                  <option>AI Services</option>
+                  <option>AI Consultancy</option>
+                  <option>AI Education</option>
+                  <option>AI Products</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field full"><label for="msg">The workflow I would hand off first</label><textarea id="msg" placeholder="Describe one repetitive, well-understood process."></textarea></div>
+            </div>
+            <div style="margin-top:18px;"><button class="btn btn-primary" type="submit">Request a call</button></div>
+            <p class="form-note"><span class="placeholder">This form is a placeholder. Connect it to your email or scheduling tool before launch.</span></p>
+          </form>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Direct</p>
+        <h2>Other ways to reach us</h2>
+        <ul class="ticks">
+          <li>Email: <a href="mailto:hello@infasia.example">hello@infasia.example</a> <span class="placeholder">placeholder</span></li>
+          <li>Phone: <span class="placeholder">to be added</span></li>
+          <li>Office: <span class="placeholder">to be added</span></li>
+        </ul>
+        <p class="muted" style="margin-top:22px;">Prefer to start by learning? Explore the <a href="services.html">delivery ladder</a> or read <a href="about.html">what we stand for</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="name">Infasia</span>
+        <p>A trustworthy, controllable AI workforce inside the operations of industry.</p>
+      </div>
+      <div>
+        <h4>Pillars</h4>
+        <a href="services.html">AI Services</a>
+        <a href="consultancy.html">AI Consultancy</a>
+        <a href="education.html">AI Education</a>
+        <a href="products.html">AI Products</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="about.html#values">What we stand for</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="contact.html">Book a discovery call</a>
+        <a href="mailto:hello@infasia.example">hello@infasia.example</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Infasia LLC. Placeholder contact details shown until finalised.</span>
+      <span>Building a trustworthy AI workforce for industry.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
